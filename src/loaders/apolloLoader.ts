@@ -2,7 +2,13 @@ import { buildSchema } from "type-graphql"
 import { Application } from "express"
 import config from "../config"
 import resolvers from '../resolvers'
-import { ApolloServer } from "apollo-server-express"
+import { ApolloServer, CorsOptions } from "apollo-server-express"
+
+// Set the cors options
+const cors: CorsOptions = {
+  credentials: true,
+  origin: config.environment === 'production' ? config.allowedOrigins : '*'
+}
 
 export default async (app: Application) => {
   try {
@@ -22,7 +28,7 @@ export default async (app: Application) => {
     })
 
     // Apply the express app to the apollo server
-    server.applyMiddleware({ app })
+    server.applyMiddleware({ app, cors })
   } catch (e) {
     console.log(e)
     throw new Error(e)
