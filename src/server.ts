@@ -2,6 +2,7 @@ import 'reflect-metadata'
 import config from './config'
 import expressLoader from './loaders/expressLoader'
 import apolloLoader from './loaders/apolloLoader'
+import notFound from './middlewares/notFound'
 
 (async () => {
   try {
@@ -12,7 +13,12 @@ import apolloLoader from './loaders/apolloLoader'
     await apolloLoader(app)
 
     // Start listening
-    app.listen(config.port, () => console.log(`Server running in port ${config.port}`))
+    app.listen(config.port, () => {
+      console.log(`Server running in at http://localhost:${config.port}/graphql`)
+    })
+    
+    // Handle 404
+    app.use(notFound)
   } catch (e) {
     console.log(e)
   }
