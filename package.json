@@ -27,6 +27,7 @@
   "homepage": "https://github.com/victorstein/covid-backend#readme",
   "dependencies": {
     "apollo-server-express": "^2.16.1",
+    "axios": "^0.19.2",
     "class-validator": "^0.12.2",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
