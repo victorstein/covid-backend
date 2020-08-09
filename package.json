@@ -1,0 +1,52 @@
+{
+  "name": "covid-backend",
+  "version": "1.0.0",
+  "description": "Yet another covid backend",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "webpack --watch | nodemon --exec node dist/server.bundle.js",
+    "build": "webpack",
+    "start": "pm2-runtime start dist/server.bundle.js -i 4 --name covid"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorstein/covid-backend.git"
+  },
+  "keywords": [
+    "covid",
+    "backend",
+    "alfonso",
+    "gomez",
+    "nicaragua"
+  ],
+  "author": "Alfonso Gomez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorstein/covid-backend/issues"
+  },
+  "homepage": "https://github.com/victorstein/covid-backend#readme",
+  "dependencies": {
+    "apollo-server-express": "^2.16.1",
+    "class-validator": "^0.12.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "graphql": "^15.3.0",
+    "helmet": "^4.0.0",
+    "pm2": "^4.4.0",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.0.0-rc.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.7",
+    "@types/express": "^4.17.7",
+    "@types/helmet": "0.0.47",
+    "@types/node": "^14.0.27",
+    "nodemon": "^2.0.4",
+    "ts-loader": "^8.0.2",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^2.5.1"
+  }
+}
