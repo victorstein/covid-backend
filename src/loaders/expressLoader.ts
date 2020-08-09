@@ -1,6 +1,7 @@
 import express, { json, Application } from 'express'
 import config from '../config'
 import helmet from 'helmet'
+import enforce from 'express-sslify'
 
 export default (): Application => {
   try {
@@ -12,6 +13,7 @@ export default (): Application => {
       app.use(helmet())
       app.use(json({ limit: '200kb' }))
       app.disable('x-powered-by')
+      app.use(enforce.HTTPS({ trustProtoHeader: true }))
     }
 
     return app
