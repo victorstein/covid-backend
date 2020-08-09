@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "webpack --watch | nodemon --exec node dist/server.bundle.js",
     "build": "webpack",
-    "start": "pm2-runtime start dist/server.bundle.js -i 4 --name covid"
+    "start": "pm2-runtime start dist/server.bundle.js -i 4 --name covid",
+    "deploy@next": "git push heroku develop:master",
+    "deploy": "git push heroku master"
   },
   "repository": {
     "type": "git",
