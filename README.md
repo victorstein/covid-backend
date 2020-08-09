@@ -21,6 +21,7 @@ This is yet another COVID-19 API but with a sprinkle of TypeGraphQL into the mix
 PORT |Int| Server Port | False
 NODE_ENV  |String| Node environment | False
 API_KEY  |string| API key to use with [COVID-19](https://rapidapi.com/api-sports/api/covid-193) API | True
+ALLOWED_ORIGINS | comma separated String | for example, http:// localhost, https://frontend.com | False
 
 
 * Finally, just run ```npm run dev``` for development, ```npm run build``` for webpack, or ```npm start``` (once built) to run from the dist folder
