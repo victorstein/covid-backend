@@ -2,6 +2,10 @@
 
 This is yet another COVID-19 API but with a sprinkle of TypeGraphQL into the mix to spice things up.
 
+## Live Example
+
+You may find a live example of the API and a runing GraphQL Playground [Here](https://yetanother-covid-api.herokuapp.com/graphql).
+
 ## Installation
 
 * Clone the repo
@@ -29,6 +33,10 @@ ALLOWED_ORIGINS | comma separated String | for example, http:// localhost, https
 ## Contributing
 
 Feel free to submit your PRs for review. There's currently no template for contribution. As the project grows we will look into further implementation of this.
+
+## Deployment
+
+If any further deployment of the API is needed feel free to contact the Repo owner. If you have access to the heroku app, you may add it to your remotes and usse the deployment scripts in package.json.
 
 ## Authors
 
