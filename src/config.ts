@@ -7,6 +7,6 @@ const config = {
   allowedOrigins: process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS?.split(',') : '*'
 }
 
-console.log(config)
+console.log(config, process.env)
 
 export default config
