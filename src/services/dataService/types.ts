@@ -2,7 +2,7 @@ import { Field, ObjectType } from "type-graphql"
 
 @ObjectType()
 export class Cases {
-  @Field()
+  @Field({ nullable: true })
   new: string
   @Field()
   active: number
@@ -16,7 +16,7 @@ export class Cases {
 
 @ObjectType()
 export class Deaths {
-  @Field()
+  @Field({ nullable: true })
   new: string
   @Field()
   total: number
@@ -32,9 +32,9 @@ export class Tests {
 export class Country {
   @Field()
   country: string
-  @Field()
+  @Field({ nullable: true })
   continent: string
-  @Field()
+  @Field({ nullable: true })
   population: number  
   @Field()
   cases: Cases
