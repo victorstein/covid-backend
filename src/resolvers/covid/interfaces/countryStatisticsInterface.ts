@@ -5,7 +5,7 @@ import isValidCountry from '../../../utils/customDecorators/isValidCountry'
 @ArgsType()
 
 export default class CountryStatisticsInterface {
-  @Field()
+  @Field({ nullable: true })
   @IsString()
   @isValidCountry({ message: 'The provided country is invalid' })
   name: string
