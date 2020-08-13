@@ -25,6 +25,15 @@ export default async (app: Application) => {
       playground: config.environment !== 'production',
       schema,
       debug: config.environment !== 'production',
+      formatError: (err) => {
+        const message = err.message.toLowerCase()
+        if (message.includes('argument validation error')) {
+          const error = err.extensions!.exception.validationErrors.map((u: any) => u.constraints)
+          err.message = error.flatMap((u : any) => Object.values(u))
+          err.extensions!.code = 'BAD_REQUEST'
+        }
+        return err
+      }
     })
 
     // Apply the express app to the apollo server
