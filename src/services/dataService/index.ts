@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios'
 import config from '../../config'
 import { Country } from './types'
+import { HTML } from '../../utils/html'
 
 export default class dataService {
   apiKey?: string
@@ -23,14 +24,22 @@ export default class dataService {
         headers: { 'x-rapidapi-key': this.apiKey },
       }
 
+      // Instanciate html class
+      const html = new HTML()
+
       // Add a country param if needed
-      if (country) { config.params = { country } }
+      if (country) { config.params = { country: html.encode(country) } }
 
       // Fetch the data
       const { data } = await axios(config)
 
+      // Clean data for user
+      const decodedData = data.response.map((country: Country) => {
+        return { ...country, country: html.decode(country.country) }
+      })
+
       // return the data
-      return data.response
+      return decodedData
     } catch (e) {
       throw new Error(e)
     }
