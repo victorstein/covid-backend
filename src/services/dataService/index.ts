@@ -57,12 +57,20 @@ export default class dataService {
 
       // Add a country param if needed
       if (country) { config.params = { search: country } }
+      
+      // Instanciate html class
+      const html = new HTML()
 
       // Fetch the data
       const { data } = await axios(config)
 
+      // Clean data for user
+      const decodedData = data.response.map((country: string) => {
+        return html.decode(country)
+      })
+
       // return the data
-      return data.response
+      return decodedData
     } catch (e) {
       throw new Error(e)
     }
